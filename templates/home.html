@@ -3,14 +3,16 @@
 <head>
   <title>home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
   <header>
     <h1>{{comp_name}} Careers</h1>
   </header>
+  <main>
   <div>
-    <img src='https://jovian-career-website-1.abelmeaza.repl.co/static/image.png' alt='image'>
+    <img src='static/image.jpg' alt='image' width="500px">
   </div>
   <div class="about">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolores et dolore illo quis quisquam reprehenderit
@@ -23,7 +25,28 @@
     {% include 'jobitem.html' %}
     {%endfor %}
   </div>
+</main>
+<footer>
+  <div class="footer-content">
+    <h2>contact</h2>
+    <p>&copy; copyright Abel Bekele</p>
+  </div>
+</footer>
 </body>
-
+<style>
+  header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+</style>
 
 </html>
