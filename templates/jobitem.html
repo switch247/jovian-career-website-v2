@@ -1,0 +1,21 @@
+<div class="card"
+    style=" padding: 1rem; background-color: blanchedalmond; border-bottom: 8cap solid black; display: flex; align-items: center; justify-content: space-between;">
+    <div>
+        <div>
+            <h4><b>title: </b>{{job['title']}}</h4>
+        </div>
+        <div>
+            {% if 'Location' in job%}
+            <b>Location: </b>{{job['Location']}}
+            {% endif %}
+        </div>
+        <div>
+            {% if salary in job %}
+            <b>salary: </b>{{job['salary']}}
+            {% endif %}
+        </div>
+    </div>
+    <div>
+        <button>Apply</button>
+    </div>
+</div>

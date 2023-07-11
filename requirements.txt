@@ -1,0 +1,4 @@
+flask
+gunicorn
+render_template
+jsonify
