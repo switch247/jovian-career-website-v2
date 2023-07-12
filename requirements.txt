@@ -2,3 +2,4 @@ flask
 gunicorn
 sqlalchemy
 pymysql
+Flask-Session

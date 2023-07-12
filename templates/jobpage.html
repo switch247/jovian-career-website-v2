@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{job.tile}}job page</title>
+    {% include 'bootstrap.html'%}
+    <link rel="stylesheet" href="/static/css/jobpages.css">
+
+</head>
+
+<body>
+
+    {% include "nav.html" %}
+    {% include 'banner.html' %}
+
+
+
+    <section>
+
+        <div class="container">
+            <h1>Jovian Careers</h1>
+            <!-- <h3>Title</h3> -->
+            <h3 class="mb-2"> {{job.title}} </h3>
+            <!-- <h4>Location</h4> -->
+            <p class="mt-0"> {{job.location}} </p>
+            <h4>Salary</h4>
+            <p>{{job.currency}} {{job.salary}} </p>
+
+            <h4>responsibilities</h4>
+            {% if job.responsibilities%}
+            <ul>
+                {% for line in job.responsibilities.split("\n") %}
+                <li>{{line}}</li>
+                {% endfor%}
+            </ul>
+            {% else %}
+            <p> {{job.responsibilities}} </p>
+            {% endif %}
+
+
+
+
+            <h4>requirements</h4>
+            {% if job.requirements%}
+            <ol>
+                {% for line in job.requirements.split("\n") %}
+                <li>{{line}}</li>
+                {% endfor%}
+            </ol>
+            {% else %}
+            <p> {{job.requirements}} </p>
+            {% endif %}
+
+
+            {% block content%}
+            {%for i in range (10)%}
+            <p>{% print( 'test' ) %}</p>
+            {% endfor%}
+
+            {% set zz =5 %}
+            <ol>
+            {%for i in range (zz)%}
+            <li>{% print( 'test' ) %}</li>
+            {% endfor%}</ol>
+
+            {%endblock%}
+        </div>
+
+    </section>
+    {% include "footer.html" %}
+</body>
+
+</html>

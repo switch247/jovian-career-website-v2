@@ -4,6 +4,7 @@ style="
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
 ">
     <div class="col-6">
         <div>
@@ -21,10 +22,7 @@ style="
         </div>
     </div>
     <div class="col-6" style="display: flex; justify-content: flex-end;">
-        <a href="mailto:izzyabenabrown@gmail.com?subject=application%20for%20{{job['title']}}&body=my%20name%3A%20%3Cyour%20name%20here%3E%0D%0Amy%20resume%20link%3A%20%3Cyour%20resume%20link%3E%0D%0Amy%20linked-in%20link%3A%20%3Clinked-in%20link%3E" 
-        
-        
-        
-        type="button" class="btn btn-primary">Apply</a>
+        <a 
+        href="/job/{{job['id']}}"type="button" class="btn btn-primary">Apply</a>
     </div>
 </div>
