@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify,render_template, redirect, request, session
 from flask_session import Session
-from database import from_database,from_database_job
+from database import from_database,from_database_job,add_application_to_db
 
 # from flask_minify import minify
 
@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
 # initializing minify for html, js and cssless
 # minify(app=app, html=True, js=True, cssless=True)
 # minify(self, app=None, html=True, js=True, cssless=True, fail_safe=True, bypass=[], passive=False, static=True, script_types=[])
@@ -28,12 +29,34 @@ def hello_world():
 def list_jobs():
   JOBS =from_database()
   return jsonify(JOBS)
+@app.route("/api/job/<int:id>")
+def show_job_json(id):
+  JOB =from_database_job(id)
+  return jsonify(JOB)
 
 @app.route("/job/<int:id>")
 def show_job(id):
   JOBS =from_database_job(id)
   # return jsonify(JOBS)
   return render_template("jobpage.html",job=JOBS)
+
+@app.route("/job/<int:id>/apply",methods=["POST"])
+def apply_job(id):
+  if request.method == "POST":
+    data =request.form
+    job =from_database_job(id)
+    add_application_to_db( id , data)
+    # .args for get method
+    # return jsonify(data)
+    return render_template('applicationsubmited.html',application=data,job=job)
+
+
+
+
+
+
+
+
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
@@ -51,5 +74,11 @@ def logout():
 @app.route("/test/<int:age>")
 def vint(age):
     return "I am %d years old " % age
+
+
+
+
+
+
 if __name__ == '__main__':
   app.run(host='0.0.0.0', debug=True)
