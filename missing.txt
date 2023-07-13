@@ -1,0 +1,9 @@
+validate
+send email (https://www.mailjet.com/)
+captcha before submited (https://www.hcaptcha.com/)
+
+admin login interface to check submited applications
+admins mark aplications accept/reject
+login to check application status
+
+plotly dashboard analysis

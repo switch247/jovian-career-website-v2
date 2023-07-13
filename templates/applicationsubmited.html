@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Application Submitted</title>
+    {% include 'bootstrap.html'%}
+</head>
+
+<body>
+    {% include "nav.html" %}
+    {% include 'banner.html' %}
+    <div class="container">
+        <h1 class="text-center mt-2">Jovian Careers</h1>
+        <p>Your application has been submitted for the role of {{job['title']}} at Jovian.</p>
+        <h4>full name</h4>
+        <div>{{application['full_name']}}</div>
+        <h4> Email </h4>
+        <div>{{application['email']}}</div>
+
+    </div>
+    {% include "footer.html" %}
+</body>
+
+</html>
